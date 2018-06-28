@@ -1,8 +1,8 @@
 import React from 'react';
-import { FlatList, Image, ScrollView, Text, View } from 'react-native';
+import { FlatList, Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
-export const Listings = ({ data }) => {
+export const Listings = ({ data, navigation }) => {
   return (
     <View>
       <Text style={ styles.subHeading }>Woningen over de hele wereld</Text>
@@ -12,11 +12,17 @@ export const Listings = ({ data }) => {
           style={ styles.listingList }
           data={ data }
           renderItem={ ({ item, index }) => <View style={ EStyleSheet.child(styles, 'listing', index, 8) }>
-            <Image
-              style={ styles.listingImage }
-              source={{ uri: item.image }}
-            />
-            <Text style={ styles.listingText }>{ item.title }</Text>
+            <TouchableOpacity onPress={ () => {
+              navigation.navigate('Listing', { // Geef aan naar welk scherm je wil navigeren
+                listingId: item.key
+              });
+            }}>
+              <Image
+                style={ styles.listingImage }
+                source={{ uri: item.image }}
+              />
+              <Text style={ styles.listingText }>{ item.title }</Text>
+            </TouchableOpacity>
           </View> }
         />
       </ScrollView>

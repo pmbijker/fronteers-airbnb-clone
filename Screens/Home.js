@@ -5,6 +5,7 @@ import { createStackNavigator } from 'react-navigation';
 
 import { Categories } from '../Components/Categories';
 import { Listings } from '../Components/Listings';
+import { Listing } from './Listing';
 
 class HomeScreen extends React.Component {
   render() {
@@ -29,7 +30,7 @@ class HomeScreen extends React.Component {
       <View style={styles.container}>
         <ScrollView showsVerticalScrollIndicator={ false }>
           <Categories data={categories} />
-          <Listings data={listings} />
+          <Listings data={listings} navigation={ this.props.navigation } />
         </ScrollView>
       </View>
     );
@@ -40,7 +41,8 @@ export default Home = createStackNavigator({
   App: {
     screen: HomeScreen,
     navigationOptions: { title: 'Home' }
-  }
+  },
+  Listing
 })
 
 const styles = EStyleSheet.create({
