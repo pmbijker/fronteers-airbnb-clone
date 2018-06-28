@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
+import EStyleSheet from 'react-native-extended-stylesheet';
 
 export default class Profile extends React.Component {
   render() {
@@ -11,7 +12,7 @@ export default class Profile extends React.Component {
   }
 }
 
-const styles = StyleSheet.create({
+const styles = EStyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',

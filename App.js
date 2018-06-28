@@ -1,11 +1,13 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import { createBottomTabNavigator } from 'react-navigation';
+import EStyleSheet from 'react-native-extended-stylesheet';
 import { FontAwesome } from '@expo/vector-icons';
 
 import Home from './Screens/Home';
 import Profile from './Screens/Profile';
 
+EStyleSheet.build();
 
 export default createBottomTabNavigator(
   {
@@ -35,7 +37,7 @@ export default createBottomTabNavigator(
   }
 );
 
-const styles = StyleSheet.create({
+const styles = EStyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
