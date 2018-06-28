@@ -2,6 +2,26 @@ import React from 'react';
 import { FlatList, Image, ScrollView, Text, View } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
+const Categories = ({ data }) => {
+  return (<View>
+    <Text style={ styles.subHeading }>Waar ben je naar op zoek?</Text>
+    <ScrollView horizontal showsHorizontalScrollIndicator={ false }>
+      <FlatList
+          style={ styles.categoryList }
+          horizontal
+          data={ data }
+          renderItem={ ({ item, index }) => <View style={ EStyleSheet.child(styles, 'category', index, 3) }>
+            <Image
+              style={ styles.categoryImage }
+              source={{ uri: item.image }}
+            />
+            <Text style={ styles.categoryText }>{ item.title }</Text>
+          </View> }
+        />
+      </ScrollView>
+  </View>)
+}
+
 export default class Home extends React.Component {
   render() {
     const categories = [
@@ -13,23 +33,7 @@ export default class Home extends React.Component {
     return (
       <View style={styles.container}>
         <ScrollView showsVerticalScrollIndicator={ false }>
-          <View>
-            <Text style={ styles.subHeading }>Waar ben je naar op zoek?</Text>
-            <ScrollView horizontal showsHorizontalScrollIndicator={ false }>
-              <FlatList
-                  style={ styles.categoryList }
-                  horizontal
-                  data={ categories }
-                  renderItem={ ({ item, index }) => <View style={ styles.category }>
-                    <Image
-                      style={ styles.categoryImage }
-                      source={{ uri: item.image }}
-                    />
-                    <Text style={ styles.categoryText }>{ item.title }</Text>
-                  </View> }
-                />
-              </ScrollView>
-          </View>
+          <Categories data={categories} />
         </ScrollView>
       </View>
     );
@@ -64,6 +68,9 @@ const styles = EStyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 2,
     elevation: 2
+  },
+  'category:last-child': {
+    marginRight: 10
   },
   categoryImage: {
     borderRadius: 5,
