@@ -4,16 +4,8 @@ import { createBottomTabNavigator } from 'react-navigation';
 import { FontAwesome } from '@expo/vector-icons';
 
 import Home from './Screens/Home';
+import Profile from './Screens/Profile';
 
-class Profile extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Profiel</Text>
-      </View>
-    );
-  }
-}
 
 export default createBottomTabNavigator(
   {
