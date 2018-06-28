@@ -3,15 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { createBottomTabNavigator } from 'react-navigation';
 import { FontAwesome } from '@expo/vector-icons';
 
-class Home extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Home</Text>
-      </View>
-    );
-  }
-}
+import Home from './Screens/Home';
 
 class Profile extends React.Component {
   render() {
