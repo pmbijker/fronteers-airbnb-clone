@@ -22,7 +22,7 @@ export const Listings = ({ data }) => {
       </ScrollView>
     </View>
   )
-} 
+}
 
 const styles = EStyleSheet.create({
   subHeading: {

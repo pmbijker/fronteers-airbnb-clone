@@ -1,11 +1,12 @@
 import React from 'react';
 import { FlatList, Image, ScrollView, Text, View } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
+import { createStackNavigator } from 'react-navigation';
 
 import { Categories } from '../Components/Categories';
 import { Listings } from '../Components/Listings';
 
-export default class Home extends React.Component {
+class HomeScreen extends React.Component {
   render() {
     const categories = [
       { "key": "1", "title": "Woningen", "image": "https://a0.muscache.com/im/pictures/8b7519ec-2c82-4c09-8233-fd4d2715bbf9.jpg?aki_policy=small" },
@@ -34,6 +35,13 @@ export default class Home extends React.Component {
     );
   }
 }
+
+export default Home = createStackNavigator({
+  App: {
+    screen: HomeScreen,
+    navigationOptions: { title: 'Home' }
+  }
+})
 
 const styles = EStyleSheet.create({
   container: {
