@@ -3,13 +3,21 @@ import { StyleSheet, Text, View } from 'react-native';
 import { createBottomTabNavigator } from 'react-navigation';
 import { FontAwesome } from '@expo/vector-icons';
 
-class App extends React.Component {
+class Home extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
+        <Text>Home</Text>
+      </View>
+    );
+  }
+}
+
+class Profile extends React.Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text>Profiel</Text>
       </View>
     );
   }
@@ -17,7 +25,8 @@ class App extends React.Component {
 
 export default createBottomTabNavigator(
   {
-    Home: App // Koppel het component App aan de route Home
+    Home, // ES6+
+    Profile
   },
   {
     navigationOptions: ({ navigation }) => ({
@@ -27,6 +36,10 @@ export default createBottomTabNavigator(
         switch (routeName) {
           case 'Home':
             iconName = 'search';
+            break;
+          case 'Profile':
+            iconName = 'user-o';
+            break;
         }
         return <FontAwesome name={ iconName } size={ 25 } color={ tintColor } />;
       }
