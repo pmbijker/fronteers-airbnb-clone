@@ -10,11 +10,13 @@ import { Listing } from './Listing';
 
 class HomeScreen extends React.Component {
   componentDidMount() {
-    firebase.database().ref('categories').once('value', (snapshot) => {
-      this.setState({ categories: snapshot.val() })
-    });
-    firebase.database().ref('listings').once('value', (snapshot) => {
-      this.setState({ listings: snapshot.val() })
+    this.getData('categories')
+    this.getData('listings')
+  }
+
+  getData = (ref) => {
+    firebase.database().ref(ref).once('value', (snapshot) => {
+      this.setState({ [ref]: snapshot.val() })
     });
   }
 
