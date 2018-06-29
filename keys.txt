@@ -1,0 +1,7 @@
+// Initialize Firebase
+const firebaseConfig = {
+  apiKey: 'AIzaSyAgOcNvVc0_Y-EPJh4xEmwYvSoTv3GTI4k',
+  authDomain: 'fronteers-8bd8c.firebaseapp.com',
+  databaseURL: 'https://fronteers-8bd8c.firebaseio.com',
+  storageBucket: 'fronteers-8bd8c.appspot.com'
+};
